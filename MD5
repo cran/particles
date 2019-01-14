@@ -1,7 +1,8 @@
-a3c61621ed5401188ff856ec2c28e2d8 *DESCRIPTION
-0415cc42e49162c660c31e1c33153a9d *LICENSE
+d296b6709e2c120bf74e9bf15ff91094 *DESCRIPTION
+c31ee18d335f7158ed985f5939319c1f *LICENSE
 db276e0654e53bfa2d3c1da04a13d02e *LICENSE.note
 6fd09abed8dabdcdf11631e553d93a66 *NAMESPACE
+fb90a6aad0f4f96580ae7890972d1cae *NEWS.md
 81fba024e958c7e58b5fecac63126414 *R/RcppExports.R
 9aab2581ff22019c5db573e06686f2e1 *R/aaa.R
 81461aff4ffe115261673651b45efcac *R/center_force.R
@@ -26,7 +27,7 @@ fdffa230763ae12f3a915a3136bd77c0 *R/random_force.R
 fe223476ba2607a751a0966a06f726b1 *R/reset_force.R
 fa2be5ba65c9130c660dafa9ea59c8d1 *R/simulate.R
 7e726e797ef4b3fa866e96e95df73590 *R/simulation.R
-43013a9e28d3f69d8f6cc8a7e3478f77 *R/trap_force.R
+6ae59b3b6e1503f8ef95db8fa50d43d3 *R/trap_force.R
 a886c1ec9a28e947efc40add37909b1b *R/universe.R
 f57df12c6f6c6eb16dcd1dbfdc9b044f *R/velocity_constraint.R
 cf9faee1bce4028ba158b8db84b5f954 *R/wield.R
@@ -35,10 +36,10 @@ fb9d4a1eb1636bc6ff9bc40a9972bb32 *R/x_force.R
 e01000d04d8ec3e1f7ff3874feaa44ff *R/y_constraint.R
 ab6cfa504a2756fb27dc83edbba74e2f *R/y_force.R
 71fbaeca7a2618e488542470e593a01c *README.md
-9c5f0dc8b60dad8370fe25f93d092bde *build/vignette.rds
+89b3ed86ec9f344019f888ef71c340ea *build/vignette.rds
 b89cdf682576ab9ae633ff8873c4d13c *inst/doc/intro.R
 bea4f76db719b7a1f4e8235ff757a109 *inst/doc/intro.Rmd
-02b09302d88a3404ecae84b943c3b58f *inst/doc/intro.html
+c004209a23a6dcd143f71eb0aaff2c37 *inst/doc/intro.html
 5ce9e3c1d2819f89d75fb13576f60c5b *man/center_force.Rd
 8d1e42e7d1f042be96f8ed84997d3187 *man/collision_force.Rd
 6c832c4b2cc8919203965f336123e3f7 *man/dominator_constraint.Rd
@@ -52,7 +53,7 @@ b3fb8ff585526a88a7b773d1c569c343 *man/link_force.Rd
 a67654363525a00b5cd57673dd97c834 *man/manybody_force.Rd
 0d9cdb6b019ac87e4ab2d3a59bf15707 *man/map_force.Rd
 38642943bc0777669843371e0916131e *man/mean_force.Rd
-a5072c05c9b1ee684ed7a08418170fea *man/particles-package.Rd
+f7d4307fc2326c3c259e1a20c7038966 *man/particles-package.Rd
 4f2a64b12c7fff0d229616346059d134 *man/path_constraint.Rd
 f228bdfe6b2eec477c0af465ab2105c8 *man/polygon_constraint.Rd
 b1b653efed6be794352246199f63dccc *man/random_force.Rd
