@@ -4,16 +4,11 @@
 \name{particles-package}
 \alias{particles-package}
 \alias{_PACKAGE}
-\alias{particles_package}
 \title{particles: A Graph Based Particle Simulator Based on D3-Force}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Simulating particle movement in 2D space has many application. The
-    'particles' package implements a particle simulator based on the ideas 
-    behind the 'd3-force' 'JavaScript' library. 'particles' implements all 
-    forces defined in 'd3-force' as well as others such as vector fields, traps, 
-    and attractors.
+Simulating particle movement in 2D space has many application. The 'particles' package implements a particle simulator based on the ideas behind the 'd3-force' 'JavaScript' library. 'particles' implements all forces defined in 'd3-force' as well as others such as vector fields, traps, and attractors.
 }
 \references{
 See also the \href{https://github.com/d3/d3-force}{GitHub page} for
@@ -36,3 +31,4 @@ Other contributors:
 }
 
 }
+\keyword{internal}

@@ -13,6 +13,8 @@
 #'
 #' @param .data A simulation object
 #'
+#' @param particles A `tbl_graph` or an object coercible to one
+#'
 #' @param ... Parameters passed on to the main verbs in tidygraph/dplyr
 #'
 #' @param interactions A data.frame of interactions/edges to add along with the
@@ -36,7 +38,7 @@
 NULL
 
 #' @rdname simulation_modification
-#' @importFrom tidygraph bind_nodes bind_edges
+#' @importFrom tidygraph bind_nodes bind_edges as_tbl_graph
 #' @importFrom igraph gorder
 #' @export
 add_particles <- function(.data, ..., interactions = NULL, setup = NULL) {
@@ -46,8 +48,21 @@ add_particles <- function(.data, ..., interactions = NULL, setup = NULL) {
   particles(.data) <- bind_nodes(particles(.data), ...)
   particles(.data) <- bind_edges(particles(.data), interactions)
   genesis <- setup(as_tbl_graph(.data), universe(.data)$parameters)
-  position(.data) <- rbind(position(.data), genesis$position[-seq_len(n_particles), , drop = FALSE])
-  velocity(.data) <- rbind(velocity(.data), genesis$velocity[-seq_len(n_particles), , drop = FALSE])
+  .data <- set_position(.data, rbind(position(.data), genesis$position[-seq_len(n_particles), , drop = FALSE]))
+  .data <- set_velocity(.data, rbind(velocity(.data), genesis$velocity[-seq_len(n_particles), , drop = FALSE]))
+  retrain(.data)
+}
+#' @rdname simulation_modification
+#' @importFrom tidygraph as_tbl_graph
+#' @export
+replace_particles <- function(.data, particles, setup = NULL) {
+  stopifnot(is.simulation(.data))
+  particles <- as_tbl_graph(particles)
+  setup <- setup %||% universe(.data)$genesis
+  particles(.data) <- particles
+  genesis <- setup(particles, universe(.data)$parameters)
+  .data <- set_position(.data, genesis$position)
+  .data <- set_velocity(.data, genesis$velocity)
   retrain(.data)
 }
 #' @rdname simulation_modification
@@ -57,7 +72,8 @@ add_interaction <- function(.data, ...) {
   particles(.data) <- bind_edges(particles(.data), ...)
   retrain(.data)
 }
-#' @importFrom tidygraph filter active
+#' @importFrom tidygraph active
+#' @importFrom dplyr filter
 #' @export
 filter.simulation <- function(.data, ...) {
   par <- particles(.data)
@@ -71,10 +87,11 @@ filter.simulation <- function(.data, ...) {
   }
   retrain(.data)
 }
-#' @importFrom tidygraph filter
+#' @importFrom dplyr filter
 #' @export
-tidygraph::filter
-#' @importFrom tidygraph slice active
+dplyr::filter
+#' @importFrom tidygraph active
+#' @importFrom dplyr slice
 #' @export
 slice.simulation <- function(.data, ...) {
   par <- particles(.data)
@@ -88,24 +105,24 @@ slice.simulation <- function(.data, ...) {
   }
   retrain(.data)
 }
-#' @importFrom tidygraph slice
+#' @importFrom dplyr slice
 #' @export
-tidygraph::slice
-#' @importFrom tidygraph mutate
+dplyr::slice
+#' @importFrom dplyr mutate
 #' @export
 mutate.simulation <- function(.data, ...) {
   particles(.data) <- mutate(particles(.data), ...)
   retrain(.data)
 }
-#' @importFrom tidygraph mutate
+#' @importFrom dplyr mutate
 #' @export
-tidygraph::mutate
-#' @importFrom tidygraph mutate_at
+dplyr::mutate
+#' @importFrom dplyr mutate_at
 #' @export
-tidygraph::mutate_at
-#' @importFrom tidygraph mutate_all
+dplyr::mutate_at
+#' @importFrom dplyr mutate_all
 #' @export
-tidygraph::mutate_all
+dplyr::mutate_all
 #' @importFrom rlang quo_text enquo
 #' @importFrom tidygraph activate
 #' @export

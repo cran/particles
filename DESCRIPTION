@@ -1,8 +1,7 @@
 Package: particles
 Type: Package
 Title: A Graph Based Particle Simulator Based on D3-Force
-Version: 0.2.2
-Date: 2019-01-14
+Version: 0.2.3
 Authors@R: 
     c(person(given = "Thomas Lin",
              family = "Pedersen",
@@ -20,18 +19,16 @@ Description: Simulating particle movement in 2D space has many application. The
 License: MIT + file LICENSE
 SystemRequirements: C++11
 Encoding: UTF-8
-LazyData: true
-Imports: tidygraph, rlang, igraph, stats, magrittr, Rcpp, mgcv, digest,
-        dplyr
-RoxygenNote: 6.1.1
-LinkingTo: Rcpp
-Suggests: knitr, rmarkdown, ggraph
+Imports: tidygraph, rlang, igraph, stats, mgcv, digest, dplyr
+RoxygenNote: 7.2.1
+LinkingTo: cpp11
+Suggests: knitr, rmarkdown, ggraph, covr
 VignetteBuilder: knitr
 URL: https://github.com/thomasp85/particles
 BugReports: https://github.com/thomasp85/particles/issues
 NeedsCompilation: yes
-Packaged: 2019-01-14 08:57:41 UTC; thomas
+Packaged: 2022-08-19 11:59:31 UTC; thomas
 Author: Thomas Lin Pedersen [aut, cre],
   Andrei Kashcha [ctb]
 Repository: CRAN
-Date/Publication: 2019-01-14 09:20:03 UTC
+Date/Publication: 2022-08-19 12:20:05 UTC
