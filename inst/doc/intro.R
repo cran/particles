@@ -5,7 +5,7 @@ knitr::opts_chunk$set(
 )
 set.seed(1)
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 library(particles)
 library(tidygraph)
 
@@ -20,14 +20,14 @@ sim <- create_ring(10) |>
 ## -----------------------------------------------------------------------------
 sim
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 library(ggraph)
 ggraph(as_tbl_graph(sim)) + 
   geom_edge_link() + 
   geom_node_point() + 
   theme_void()
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 sim <- sim |> 
   unwield(2) |> 
   wield(manybody_force, strength = 30) |> 
@@ -39,7 +39,7 @@ ggraph(as_tbl_graph(sim)) +
   geom_node_point() + 
   theme_void()
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 sim <- play_islands(3, 10, 0.6, 3) |> 
   mutate(group = group_infomap()) |> 
   activate(edges) |> 
@@ -54,7 +54,7 @@ ggraph(as_tbl_graph(sim)) +
   theme_void() + 
   theme(legend.position = 'none')
 
-## ---- message=FALSE-----------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 sim <- sim |> 
   activate(edges) |> 
   mutate(weight = 1) |> 
